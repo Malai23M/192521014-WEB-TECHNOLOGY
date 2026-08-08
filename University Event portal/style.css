@@ -1,0 +1,785 @@
+/* =====================================================
+   UNIVERSITY EVENT REGISTRATION PORTAL
+   Main External CSS File
+   ===================================================== */
+
+
+/* =====================================================
+   1. RESET AND BASIC STYLES
+   ===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f5f7fb;
+    color: #1f2937;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+
+/* =====================================================
+   2. HEADER
+   ===================================================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #111827;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.header-content {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo h1 {
+    color: white;
+    font-size: 22px;
+    text-shadow: 1px 1px 2px #000;
+}
+
+.logo p {
+    color: #cbd5e1;
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   3. NAVIGATION
+   ===================================================== */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 9px 15px;
+    border-radius: 6px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.navbar a:hover,
+.navbar a:focus {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+
+/* =====================================================
+   4. HERO SECTION
+   ===================================================== */
+
+.hero {
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 20px;
+    color: white;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(30, 64, 175, 0.96),
+            rgba(124, 58, 237, 0.90)
+        );
+}
+
+.campaign {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 30px;
+    padding: 8px 18px;
+    margin-bottom: 20px;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.hero h2 {
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.1;
+    margin-bottom: 20px;
+    text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.25);
+}
+
+.hero p {
+    max-width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 18px;
+    opacity: 0.95;
+}
+
+.hero-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 14px 28px;
+    background-color: white;
+    color: #1d4ed8;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hero-button:hover,
+.hero-button:focus {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =====================================================
+   5. SECTION TITLES
+   ===================================================== */
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title > span,
+.form-heading > span {
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.section-title h2,
+.form-heading h2 {
+    font-size: 36px;
+    color: #111827;
+    margin: 8px 0;
+}
+
+.section-title p,
+.form-heading p {
+    color: #64748b;
+}
+
+
+/* =====================================================
+   6. EVENTS SECTION
+   ===================================================== */
+
+.events-section {
+    padding: 85px 0;
+    background-color: #f8fafc;
+}
+
+
+/* CSS Grid for primary card layout */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+}
+
+
+/* =====================================================
+   7. EVENT CARDS
+   ===================================================== */
+
+.event-card {
+    position: relative;
+    background-color: white;
+
+    /* Box model demonstration */
+    padding: 0;
+    border: 1px solid #e2e8f0;
+    margin: 0;
+
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(15, 23, 42, 0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.15);
+}
+
+
+/* =====================================================
+   8. EVENT IMAGE / CATEGORY AREA
+   ===================================================== */
+
+.event-image {
+    height: 145px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+
+    position: relative;
+}
+
+.technical {
+    background: linear-gradient(135deg, #2563eb, #06b6d4);
+}
+
+.cultural {
+    background: linear-gradient(135deg, #db2777, #9333ea);
+}
+
+.placement {
+    background: linear-gradient(135deg, #059669, #0d9488);
+}
+
+.sports {
+    background: linear-gradient(135deg, #ea580c, #eab308);
+}
+
+
+/* =====================================================
+   9. EVENT CONTENT
+   ===================================================== */
+
+.event-content {
+    padding: 24px;
+}
+
+.event-content h3 {
+    font-size: 20px;
+    color: #111827;
+    margin: 8px 0 15px;
+}
+
+
+/* Descendant selector */
+.event-content p {
+    color: #64748b;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+
+/* Child selector */
+.event-content > .category {
+    display: inline-block;
+}
+
+.category {
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   10. EVENT STATUS BADGE
+   ===================================================== */
+
+.status {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    padding: 5px 10px;
+    border-radius: 20px;
+
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+
+    z-index: 2;
+}
+
+.available {
+    background-color: #16a34a;
+}
+
+.limited {
+    background-color: #ea580c;
+}
+
+
+/* =====================================================
+   11. EVENT DETAILS
+   ===================================================== */
+
+.event-details {
+    list-style: none;
+    margin-bottom: 18px;
+}
+
+.event-details li {
+    font-size: 13px;
+    color: #475569;
+    margin-bottom: 6px;
+}
+
+
+/* =====================================================
+   12. REGISTER BUTTON
+   ===================================================== */
+
+.register-button {
+    display: block;
+    text-align: center;
+
+    background-color: #2563eb;
+    color: white;
+
+    padding: 11px 15px;
+    border-radius: 7px;
+
+    text-decoration: none;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s,
+        transform 0.3s;
+}
+
+.register-button:hover,
+.register-button:focus {
+    background-color: #1d4ed8;
+    transform: scale(1.03);
+}
+
+
+/* =====================================================
+   13. REGISTRATION SECTION
+   ===================================================== */
+
+.registration-section {
+    padding: 85px 0;
+    background-color: #eaf0ff;
+}
+
+.registration-container {
+    max-width: 850px;
+}
+
+.form-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.registration-form {
+    background-color: white;
+    padding: 40px;
+    border: 1px solid #dbe3ef;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    color: #1e293b;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+/* Attribute selector */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 13px 14px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+
+    background-color: #f8fafc;
+    color: #1e293b;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    transition:
+        border-color 0.3s,
+        box-shadow 0.3s;
+}
+
+
+/* Focus pseudo-class */
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+
+/* =====================================================
+   14. CHECKBOX
+   ===================================================== */
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.checkbox-group input {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    font-size: 13px;
+    color: #475569;
+}
+
+
+/* =====================================================
+   15. SUBMIT BUTTON
+   ===================================================== */
+
+.submit-button {
+    width: 100%;
+    border: none;
+
+    padding: 14px;
+    border-radius: 7px;
+
+    background: linear-gradient(
+        90deg,
+        #2563eb,
+        #7c3aed
+    );
+
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.submit-button:hover,
+.submit-button:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+
+/* =====================================================
+   16. FIXED HELP BUTTON
+   ===================================================== */
+
+.help-button {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #2563eb;
+    color: white;
+
+    border-radius: 50%;
+
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+
+    z-index: 2000;
+
+    transition: transform 0.3s;
+}
+
+.help-button:hover {
+    transform: scale(1.1);
+}
+
+
+/* =====================================================
+   17. FOOTER
+   ===================================================== */
+
+.footer {
+    background-color: #111827;
+    color: #cbd5e1;
+    padding-top: 55px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.5fr;
+    gap: 50px;
+    padding-bottom: 45px;
+}
+
+.footer h3 {
+    color: white;
+    margin-bottom: 15px;
+}
+
+.footer p {
+    font-size: 14px;
+}
+
+.footer ul {
+    list-style: none;
+}
+
+.footer li {
+    margin-bottom: 8px;
+}
+
+.footer a {
+    color: #cbd5e1;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+
+/* =====================================================
+   18. PSEUDO-ELEMENT
+   ===================================================== */
+
+.footer h3::after {
+    content: "";
+    display: block;
+
+    width: 35px;
+    height: 2px;
+
+    background-color: #2563eb;
+
+    margin-top: 8px;
+}
+
+
+/* =====================================================
+   19. COPYRIGHT
+   ===================================================== */
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #374151;
+    padding: 20px;
+}
+
+.copyright p {
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   20. RESPONSIVE DESIGN - TABLET
+   ===================================================== */
+
+@media (max-width: 1000px) {
+
+    .event-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+/* =====================================================
+   21. RESPONSIVE DESIGN - MOBILE
+   Approx. 375px viewport
+   ===================================================== */
+
+@media (max-width: 650px) {
+
+    .container {
+        width: 92%;
+    }
+
+
+    /* Mobile Navigation */
+
+    .header-content {
+        flex-direction: column;
+        padding: 18px 0;
+        gap: 12px;
+    }
+
+    .logo {
+        text-align: center;
+    }
+
+    .navbar {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .navbar a {
+        padding: 7px 10px;
+        font-size: 13px;
+    }
+
+
+    /* Mobile Hero */
+
+    .hero {
+        min-height: 430px;
+        padding: 50px 15px;
+    }
+
+    .hero h2 {
+        font-size: 40px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+
+    /* One-column event layout */
+
+    .events-section {
+        padding: 60px 0;
+    }
+
+    .event-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+
+    /* Mobile headings */
+
+    .section-title h2,
+    .form-heading h2 {
+        font-size: 28px;
+    }
+
+
+    /* Mobile form */
+
+    .registration-section {
+        padding: 60px 0;
+    }
+
+    .registration-form {
+        padding: 25px 18px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+
+    /* Mobile footer */
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-bottom: 35px;
+    }
+
+
+    /* Fixed button adjustment */
+
+    .help-button {
+        right: 15px;
+        bottom: 15px;
+        width: 45px;
+        height: 45px;
+    }
+
+}
+
+
+/* =====================================================
+   22. EXTRA SMALL MOBILE DEVICES
+   ===================================================== */
+
+@media (max-width: 400px) {
+
+    .hero h2 {
+        font-size: 34px;
+    }
+
+    .navbar {
+        gap: 2px;
+    }
+
+    .navbar a {
+        font-size: 12px;
+        padding: 6px 8px;
+    }
+
+    .event-content {
+        padding: 20px;
+    }
+
+}
