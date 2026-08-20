@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>University Event Registration Portal</title>
+
+    <style>
+
+        /* ==============================
+           GENERAL
+        ============================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #1f2937;
+            background: #f4f6f9;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* ==============================
+           TOP BAR
+        ============================== */
+
+        .topbar {
+            background: #0b1f3a;
+            color: white;
+            padding: 7px 7%;
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+        }
+
+
+        /* ==============================
+           HEADER
+        ============================== */
+
+        header {
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: auto;
+
+            padding: 18px 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .university {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 55px;
+            height: 55px;
+
+            border-radius: 50%;
+
+            background: #123c69;
+            color: white;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .university h1 {
+            margin: 0;
+            color: #0b1f3a;
+            font-size: 22px;
+        }
+
+        .university p {
+            margin: 0;
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+
+        /* ==============================
+           NAVIGATION
+        ============================== */
+
+        nav {
+            display: flex;
+            gap: 5px;
+        }
+
+        nav a {
+            color: #1f2937;
+            padding: 9px 13px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            background: #123c69;
+            color: white;
+        }
+
+
+        /* ==============================
+           ANNOUNCEMENT
+        ============================== */
+
+        .announcement {
+            background: #e8f1fb;
+            color: #123c69;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 1px solid #cbdced;
+        }
+
+
+        /* ==============================
+           HERO
+        ============================== */
+
+        .hero {
+            min-height: 450px;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #0b1f3a,
+                    #123c69,
+                    #1e5b91
+                );
+
+            color: white;
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 350px;
+            height: 350px;
+
+            border: 50px solid rgba(255,255,255,0.06);
+            border-radius: 50%;
+
+            right: -100px;
+            top: 40px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            width: 100%;
+
+            margin: auto;
+            padding: 50px 20px;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-label {
+            letter-spacing: 2px;
+            font-size: 13px;
+            color: #cbdced;
+            font-weight: bold;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            max-width: 700px;
+            margin: 12px 0;
+
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            max-width: 650px;
+            font-size: 17px;
+            color: #e5edf7;
+        }
+
+        .hero-buttons {
+            margin-top: 25px;
+        }
+
+        .primary-btn,
+        .secondary-btn {
+            display: inline-block;
+
+            padding: 12px 22px;
+
+            border-radius: 5px;
+
+            margin-right: 8px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .primary-btn {
+            background: white;
+            color: #0b1f3a;
+        }
+
+        .secondary-btn {
+            border: 1px solid white;
+            color: white;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+        .secondary-btn:hover {
+            background: white;
+            color: #0b1f3a;
+        }
+
+
+        /* ==============================
+           STATISTICS
+        ============================== */
+
+        .stats {
+            max-width: 1100px;
+            margin: -45px auto 0;
+
+            position: relative;
+            z-index: 10;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+
+            background: white;
+
+            border-radius: 8px;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+
+        .stat {
+            text-align: center;
+            padding: 25px;
+            border-right: 1px solid #e5e7eb;
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat h3 {
+            color: #123c69;
+            font-size: 28px;
+            margin: 0;
+        }
+
+        .stat p {
+            margin: 3px 0;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+
+        /* ==============================
+           COMMON SECTION
+        ============================== */
+
+        .section {
+            max-width: 1200px;
+            margin: auto;
+            padding: 75px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title span {
+            color: #1e5b91;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .section-title h2 {
+            margin: 8px 0;
+            font-size: 32px;
+            color: #0b1f3a;
+        }
+
+        .section-title p {
+            color: #6b7280;
+        }
+
+
+        /* ==============================
+           EVENTS
+        ============================== */
+
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .event-card {
+            background: white;
+
+            padding: 25px;
+
+            border: 1px solid #dbe2ea;
+
+            margin: 4px;
+
+            border-radius: 8px;
+
+            box-shadow: 0 5px 18px rgba(0,0,0,0.07);
+
+            position: relative;
+
+            transition: 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.13);
+        }
+
+        .event-icon {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #e8f1fb;
+            color: #123c69;
+
+            border-radius: 8px;
+
+            font-size: 26px;
+
+            margin-bottom: 18px;
+        }
+
+        .event-card h3 {
+            color: #0b1f3a;
+            margin-bottom: 5px;
+        }
+
+        .category {
+            display: inline-block;
+
+            color: #1e5b91;
+            background: #edf5fc;
+
+            padding: 3px 9px;
+
+            border-radius: 20px;
+
+            font-size: 11px;
+            font-weight: bold;
+
+            margin-bottom: 10px;
+        }
+
+        .event-info {
+            font-size: 13px;
+            color: #4b5563;
+        }
+
+        .event-status {
+            position: absolute;
+
+            right: 15px;
+            top: 15px;
+
+            background: #e7f6ed;
+            color: #177245;
+
+            padding: 4px 8px;
+
+            border-radius: 15px;
+
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .event-btn {
+            display: inline-block;
+
+            margin-top: 12px;
+
+            background: #123c69;
+            color: white;
+
+            padding: 9px 17px;
+
+            border-radius: 5px;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .event-btn:hover {
+            background: #0b1f3a;
+            transform: translateY(-2px);
+        }
+
+
+        /* ==============================
+           ABOUT SECTION
+        ============================== */
+
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 45px;
+
+            align-items: center;
+        }
+
+        .about-box {
+            padding: 30px;
+
+            border-left: 5px solid #123c69;
+
+            background: #f7f9fc;
+        }
+
+        .about-box h3 {
+            color: #0b1f3a;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            margin-bottom: 13px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .features li::before {
+            content: "✓";
+
+            position: absolute;
+            left: 0;
+
+            color: #177245;
+            font-weight: bold;
+        }
+
+
+        /* ==============================
+           REGISTRATION
+        ============================== */
+
+        .registration {
+            background: #eef3f8;
+        }
+
+        .form-container {
+            max-width: 900px;
+            margin: auto;
+
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 8px;
+
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        form {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 20px;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-weight: bold;
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .input-group input,
+        .input-group select {
+            padding: 12px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 5px;
+
+            font-size: 14px;
+        }
+
+        .input-group input:focus,
+        .input-group select:focus {
+            outline: 3px solid #dceaf7;
+            border-color: #123c69;
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        .submit-btn {
+            grid-column: 1 / -1;
+
+            justify-self: center;
+
+            background: #123c69;
+            color: white;
+
+            border: none;
+
+            padding: 12px 35px;
+
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #0b1f3a;
+            transform: translateY(-2px);
+        }
+
+
+        /* ==============================
+           CONTACT
+        ============================== */
+
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+        .contact-box {
+            background: white;
+
+            text-align: center;
+
+            padding: 30px;
+
+            border: 1px solid #dbe2ea;
+
+            border-radius: 8px;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .contact-box h3 {
+            color: #123c69;
+        }
+
+
+        /* ==============================
+           FOOTER
+        ============================== */
+
+        footer {
+            background: #0b1f3a;
+            color: white;
+
+            padding: 45px 7%;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 2fr 1fr 1fr;
+
+            gap: 35px;
+        }
+
+        footer h3 {
+            color: #cbdced;
+        }
+
+        footer a {
+            display: block;
+            color: #dbe5ef;
+            margin-bottom: 6px;
+        }
+
+        footer a:hover {
+            color: white;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 30px auto 0;
+
+            padding-top: 15px;
+
+            border-top: 1px solid #29415e;
+
+            text-align: center;
+
+            font-size: 13px;
+
+            opacity: 0.8;
+        }
+
+
+        /* ==============================
+           FIXED HELP BUTTON
+        ============================== */
+
+        .help {
+            position: fixed;
+
+            right: 20px;
+            bottom: 20px;
+
+            z-index: 2000;
+
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #123c69;
+            color: white;
+
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .help:hover {
+            transform: scale(1.1);
+        }
+
+
+        /* ==============================
+           RESPONSIVE DESIGN
+        ============================== */
+
+        @media (max-width: 1000px) {
+
+            .event-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats {
+                width: 90%;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 700px) {
+
+            .topbar {
+                display: none;
+            }
+
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .university {
+                justify-content: center;
+            }
+
+            nav {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            nav a {
+                padding: 6px;
+            }
+
+            .hero {
+                min-height: 480px;
+            }
+
+            .hero h2 {
+                font-size: 35px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat {
+                border-right: none;
+                border-bottom: 1px solid #e5e7eb;
+            }
+
+            .event-grid {
+                grid-template-columns: 1fr;
+            }
+
+            form {
+                grid-template-columns: 1fr;
+            }
+
+            .full,
+            .submit-btn {
+                grid-column: auto;
+            }
+
+            .submit-btn {
+                width: 100%;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- TOP INFORMATION BAR -->
+
+    <div class="topbar">
+        <span>Official University Event Portal</span>
+        <span>Academic Year 2026–2027</span>
+    </div>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="header-content">
+
+            <div class="university">
+
+                <div class="logo">
+                    AU
+                </div>
+
+                <div>
+                    <h1>ABC University</h1>
+                    <p>Office of Student Affairs</p>
+                </div>
+
+            </div>
+
+
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#events">Events</a>
+                <a href="#about">About</a>
+                <a href="#register">Registration</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ANNOUNCEMENT -->
+
+    <div class="announcement">
+
+        📢 Registration is open for August 2026 University Events
+
+    </div>
+
+
+    <!-- HERO -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <span class="hero-label">
+                UNIVERSITY EVENTS 2026
+            </span>
+
+            <h2>
+                Connect, Learn & Participate
+            </h2>
+
+            <p>
+                Explore academic, technical, cultural, placement and
+                sports programmes organized for the university community.
+            </p>
+
+            <p>
+                <strong>Registration Period:</strong>
+                10 August – 30 August 2026
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#events" class="primary-btn">
+                    View Events
+                </a>
+
+                <a href="#register" class="secondary-btn">
+                    Register Now
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATISTICS -->
+
+    <div class="stats">
+
+        <div class="stat">
+            <h3>25+</h3>
+            <p>Events</p>
+        </div>
+
+        <div class="stat">
+            <h3>500+</h3>
+            <p>Students</p>
+        </div>
+
+        <div class="stat">
+            <h3>15</h3>
+            <p>Departments</p>
+        </div>
+
+        <div class="stat">
+            <h3>10</h3>
+            <p>Venues</p>
+        </div>
+
+    </div>
+
+
+    <!-- EVENTS -->
+
+    <section id="events" class="section">
+
+        <div class="section-title">
+
+            <span>EVENT CATALOGUE</span>
+
+            <h2>Upcoming University Events</h2>
+
+            <p>
+                Discover opportunities to learn, compete and connect.
+            </p>
+
+        </div>
+
+
+        <div class="event-grid">
+
+
+            <!-- EVENT 1 -->
+
+            <article class="event-card">
+
+                <span class="event-status">
+                    REGISTRATION OPEN
+                </span>
+
+                <div class="event-icon">
+                    💻
+                </div>
+
+                <span class="category">
+                    TECHNICAL
+                </span>
+
+                <h3>Web Technology Workshop</h3>
+
+                <div class="event-info">
+
+                    <p>📅 <strong>15 August 2026</strong></p>
+
+                    <p>⏰ 10:00 AM – 1:00 PM</p>
+
+                    <p>📍 Computer Laboratory</p>
+
+                    <p>
+                        Hands-on workshop covering HTML, CSS and
+                        responsive web design.
+                    </p>
+
+                </div>
+
+                <a href="#register" class="event-btn">
+                    Register
+                </a>
+
+            </article>
+
+
+            <!-- EVENT 2 -->
+
+            <article class="event-card">
+
+                <span class="event-status">
+                    REGISTRATION OPEN
+                </span>
+
+                <div class="event-icon">
+                    🎭
+                </div>
+
+                <span class="category">
+                    CULTURAL
+                </span>
+
+                <h3>Annual Cultural Festival</h3>
+
+                <div class="event-info">
+
+                    <p>📅 <strong>18 August 2026</strong></p>
+
+                    <p>⏰ 3:00 PM – 6:00 PM</p>
+
+                    <p>📍 University Auditorium</p>
+
+                    <p>
+                        Celebrate creativity through music, dance,
+                        drama and cultural performances.
+                    </p>
+
+                </div>
+
+                <a href="#register" class="event-btn">
+                    Register
+                </a>
+
+            </article>
+
+
+            <!-- EVENT 3 -->
+
+            <article class="event-card">
+
+                <span class="event-status">
+                    REGISTRATION OPEN
+                </span>
+
+                <div class="event-icon">
+                    💼
+                </div>
+
+                <span class="category">
+                    PLACEMENT
+                </span>
+
+                <h3>Career Development Programme</h3>
+
+                <div class="event-info">
+
+                    <p>📅 <strong>22 August 2026</strong></p>
+
+                    <p>⏰ 9:30 AM – 12:30 PM</p>
+
+                    <p>📍 Seminar Hall</p>
+
+                    <p>
+                        Develop aptitude, communication and interview
+                        skills for placement opportunities.
+                    </p>
+
+                </div>
+
+                <a href="#register" class="event-btn">
+                    Register
+                </a>
+
+            </article>
+
+
+            <!-- EVENT 4 -->
+
+            <article class="event-card">
+
+                <span class="event-status">
+                    REGISTRATION OPEN
+                </span>
+
+                <div class="event-icon">
+                    🏆
+                </div>
+
+                <span class="category">
+                    SPORTS
+                </span>
+
+                <h3>Inter-Department Sports Meet</h3>
+
+                <div class="event-info">
+
+                    <p>📅 <strong>25 August 2026</strong></p>
+
+                    <p>⏰ 8:00 AM – 4:00 PM</p>
+
+                    <p>📍 University Sports Ground</p>
+
+                    <p>
+                        Participate in cricket, football, badminton
+                        and other competitions.
+                    </p>
+
+                </div>
+
+                <a href="#register" class="event-btn">
+                    Register
+                </a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+
+    <section id="about" class="about">
+
+        <div class="section">
+
+            <div class="section-title">
+
+                <span>ABOUT THE PORTAL</span>
+
+                <h2>One Platform for University Events</h2>
+
+            </div>
+
+
+            <div class="about-content">
+
+                <div>
+
+                    <h3>
+                        Building an active campus community
+                    </h3>
+
+                    <p>
+                        The University Event Registration Portal provides
+                        students with a simple platform to discover and
+                        register for university activities.
+                    </p>
+
+                    <p>
+                        Students can participate in technical,
+                        cultural, placement and sports programmes
+                        through a single registration system.
+                    </p>
+
+                </div>
+
+
+                <div class="about-box">
+
+                    <h3>
+                        Why Participate?
+                    </h3>
+
+                    <ul class="features">
+
+                        <li>
+                            Develop practical skills
+                        </li>
+
+                        <li>
+                            Improve communication
+                        </li>
+
+                        <li>
+                            Build teamwork experience
+                        </li>
+
+                        <li>
+                            Explore career opportunities
+                        </li>
+
+                        <li>
+                            Connect with other students
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- REGISTRATION -->
+
+    <section id="register" class="registration">
+
+        <div class="section">
+
+            <div class="section-title">
+
+                <span>ONLINE REGISTRATION</span>
+
+                <h2>Register for an Event</h2>
+
+                <p>
+                    Please provide accurate student information.
+                </p>
+
+            </div>
+
+
+            <div class="form-container">
+
+                <form>
+
+                    <div class="input-group">
+
+                        <label for="student">
+                            Student Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="student"
+                            placeholder="Enter full name"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="registerNo">
+                            Register Number
+                        </label>
+
+                        <input
+                            type="text"
+                            id="registerNo"
+                            placeholder="Enter register number"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="department">
+                            Department
+                        </label>
+
+                        <select id="department" required>
+
+                            <option value="">
+                                Select Department
+                            </option>
+
+                            <option>
+                                Information Technology
+                            </option>
+
+                            <option>
+                                Computer Science
+                            </option>
+
+                            <option>
+                                Electronics and Communication
+                            </option>
+
+                            <option>
+                                Mechanical Engineering
+                            </option>
+
+                            <option>
+                                Civil Engineering
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="student@example.com"
+                            required>
+
+                    </div>
+
+
+                    <div class="input-group full">
+
+                        <label for="event">
+                            Select Event
+                        </label>
+
+                        <select id="event" required>
+
+                            <option value="">
+                                Select an Event
+                            </option>
+
+                            <option>
+                                Web Technology Workshop
+                            </option>
+
+                            <option>
+                                Annual Cultural Festival
+                            </option>
+
+                            <option>
+                                Career Development Programme
+                            </option>
+
+                            <option>
+                                Inter-Department Sports Meet
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="submit-btn">
+
+                        Submit Registration
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact" class="section">
+
+        <div class="section-title">
+
+            <span>GET IN TOUCH</span>
+
+            <h2>Contact University Events Office</h2>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+            <div class="contact-box">
+
+                <h3>📍 Office</h3>
+
+                <p>
+                    Student Affairs Building<br>
+                    ABC University Campus
+                </p>
+
+            </div>
+
+
+            <div class="contact-box">
+
+                <h3>📧 Email</h3>
+
+                <p>
+                    events@abcuniversity.edu
+                </p>
+
+            </div>
+
+
+            <div class="contact-box">
+
+                <h3>📞 Phone</h3>
+
+                <p>
+                    +91 98765 43210
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-grid">
+
+            <div>
+
+                <h3>ABC University</h3>
+
+                <p>
+                    University Event Registration Portal
+                </p>
+
+                <p>
+                    Connecting students with opportunities
+                    beyond the classroom.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h3>Quick Links</h3>
+
+                <a href="#home">Home</a>
+                <a href="#events">Events</a>
+                <a href="#about">About</a>
+                <a href="#register">Registration</a>
+
+            </div>
+
+
+            <div>
+
+                <h3>Important</h3>
+
+                <a href="#events">Event Catalogue</a>
+                <a href="#contact">Contact Office</a>
+                <a href="#register">Student Registration</a>
+
+            </div>
+
+        </div>
+
+
+        <p class="copyright">
+
+            © 2026 ABC University |
+            Student Affairs Office |
+            All Rights Reserved
+
+        </p>
+
+    </footer>
+
+
+    <!-- FIXED HELP BUTTON -->
+
+    <a href="#contact" class="help">
+        ?
+    </a>
+
+
+    <!-- INLINE CSS DEMONSTRATION -->
+
+    <p style="text-align:center; font-size:12px; margin:8px;">
+
+        Skill Development Laboratory – Web Technology
+
+    </p>
+
+
+</body>
+
+</html>
