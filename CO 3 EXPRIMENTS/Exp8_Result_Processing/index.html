@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exp 8: Student Marks & Result Processing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+            color: #0f172a;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #dbeafe;
+            color: #1e40af;
+            padding: 0.2rem 0.6rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            color: #0f172a;
+            margin: 1.25rem 0 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.35rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        @media (max-width: 600px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+            margin-bottom: 0.85rem;
+        }
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .req {
+            color: #ef4444;
+        }
+
+        input[type="text"], input[type="number"], select {
+            padding: 0.6rem 0.8rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, select:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn-submit {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+
+        .btn-submit:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-reset {
+            background-color: #e2e8f0;
+            color: #475569;
+        }
+
+        .btn-reset:hover {
+            background-color: #cbd5e1;
+        }
+
+        .info-note {
+            font-size: 0.8rem;
+            color: #64748b;
+            margin-top: 0.5rem;
+            background: #f8fafc;
+            padding: 0.5rem;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <header>
+                <span class="badge">Exp 8: Academic Evaluation Engine</span>
+                <h1>Student Result Processing System</h1>
+                <p class="subtitle">Enter student credentials and marks across 5 subjects (Max: 100 each)</p>
+            </header>
+
+            <form action="result" method="POST">
+                <h3 class="section-title">1. Student Identification</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="studentName">Student Name <span class="req">*</span></label>
+                        <input type="text" id="studentName" name="studentName" placeholder="e.g. Johnathan Smith" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="regNumber">Register Number <span class="req">*</span></label>
+                        <input type="text" id="regNumber" name="regNumber" placeholder="e.g. 21CS099" required>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="department">Department <span class="req">*</span></label>
+                        <select id="department" name="department" required>
+                            <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                            <option value="Information Technology">Information Technology</option>
+                            <option value="Electronics & Communication">Electronics & Communication</option>
+                            <option value="AI & Data Science">AI & Data Science</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="semester">Semester <span class="req">*</span></label>
+                        <select id="semester" name="semester" required>
+                            <option value="VI">Semester VI</option>
+                            <option value="V">Semester V</option>
+                            <option value="IV">Semester IV</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h3 class="section-title">2. Subject Marks Entry (0 - 100)</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="m1">Subject 1: Web Technologies <span class="req">*</span></label>
+                        <input type="number" id="m1" name="m1" min="0" max="100" placeholder="0 - 100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="m2">Subject 2: Data Structures & Algorithms <span class="req">*</span></label>
+                        <input type="number" id="m2" name="m2" min="0" max="100" placeholder="0 - 100" required>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="m3">Subject 3: Database Management Systems <span class="req">*</span></label>
+                        <input type="number" id="m3" name="m3" min="0" max="100" placeholder="0 - 100" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="m4">Subject 4: Operating Systems <span class="req">*</span></label>
+                        <input type="number" id="m4" name="m4" min="0" max="100" placeholder="0 - 100" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="m5">Subject 5: Computer Networks <span class="req">*</span></label>
+                    <input type="number" id="m5" name="m5" min="0" max="100" placeholder="0 - 100" required>
+                </div>
+
+                <div class="info-note">
+                    ℹ️ <strong>Pass Criteria:</strong> Minimum 40 marks required in each individual subject.
+                </div>
+
+                <div class="btn-row">
+                    <button type="submit" class="btn btn-submit">Calculate & Generate Grade Report</button>
+                    <button type="reset" class="btn btn-reset">Reset Form</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

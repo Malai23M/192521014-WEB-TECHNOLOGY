@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exp 1: DOM-Based Student Profile Manipulation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="main-heading">Student Profile Viewer</h1>
+            <p class="subtitle">Demonstration of DOM Manipulation Methods</p>
+        </header>
+
+        <!-- Controls Section -->
+        <section class="controls-card">
+            <h2>Profile Controls</h2>
+            <div class="controls-grid">
+                <!-- Change Heading -->
+                <div class="control-group">
+                    <label for="heading-input">Change Heading (textContent):</label>
+                    <div class="input-action">
+                        <input type="text" id="heading-input" placeholder="Enter new heading...">
+                        <button id="btn-update-heading" class="btn btn-primary">Update</button>
+                    </div>
+                </div>
+
+                <!-- Text Color -->
+                <div class="control-group">
+                    <label for="text-color-picker">Text Colour (style.color):</label>
+                    <input type="color" id="text-color-picker" value="#1e293b">
+                </div>
+
+                <!-- Background Color -->
+                <div class="control-group">
+                    <label for="bg-color-picker">Card Background (style.backgroundColor):</label>
+                    <input type="color" id="bg-color-picker" value="#ffffff">
+                </div>
+
+                <!-- Profile Photo Switcher -->
+                <div class="control-group">
+                    <label for="avatar-select">Change Photo (setAttribute):</label>
+                    <select id="avatar-select">
+                        <option value="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80">Avatar 1 (Female Student)</option>
+                        <option value="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&auto=format&fit=crop&q=80">Avatar 2 (Male Student)</option>
+                        <option value="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=200&auto=format&fit=crop&q=80">Avatar 3 (Student with Glasses)</option>
+                    </select>
+                </div>
+
+                <!-- ClassList Theme Toggle -->
+                <div class="control-group">
+                    <label>Highlight Mode (classList):</label>
+                    <button id="btn-toggle-highlight" class="btn btn-accent">Toggle Highlight Theme</button>
+                </div>
+
+                <!-- Show / Hide Profile -->
+                <div class="control-group">
+                    <label>Visibility Toggle:</label>
+                    <button id="btn-toggle-visibility" class="btn btn-secondary">Hide Profile</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Student Profile Card Section -->
+        <main>
+            <div id="profile-container" class="profile-card">
+                <div class="profile-header">
+                    <img id="student-avatar" 
+                         src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&auto=format&fit=crop&q=80" 
+                         alt="Student Avatar Picture" 
+                         class="avatar">
+                    <div class="profile-title">
+                        <h2 id="student-name">Alex Morgan</h2>
+                        <span id="student-status" class="badge">Active Student</span>
+                    </div>
+                </div>
+
+                <div class="profile-body">
+                    <div class="info-row">
+                        <span class="info-label">Register Number:</span>
+                        <span id="student-regno" class="info-value">REG2024CS108</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Department:</span>
+                        <span id="student-dept" class="info-value">Computer Science & Engineering</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Year / Semester:</span>
+                        <span id="student-sem" class="info-value">III Year / Semester VI</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Email:</span>
+                        <span id="student-email" class="info-value">alex.morgan@university.edu</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">CGPA:</span>
+                        <span id="student-cgpa" class="info-value">9.15 / 10.0</span>
+                    </div>
+                </div>
+
+                <div class="profile-footer">
+                    <p id="dom-log">DOM Log: Profile initialized successfully.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Explanation Section -->
+        <section class="explanation-card">
+            <h3>DOM Methods & Properties Demonstrated:</h3>
+            <ul>
+                <li><code>document.getElementById()</code>: Selected unique elements (heading, buttons, pickers).</li>
+                <li><code>document.querySelector()</code>: Selected elements via CSS selectors (classes and tags).</li>
+                <li><code>textContent</code>: Dynamically altered heading and profile information.</li>
+                <li><code>style.color</code> & <code>style.backgroundColor</code>: Dynamically changed inline CSS styles.</li>
+                <li><code>classList.toggle()</code>: Added and removed CSS themes dynamically.</li>
+                <li><code>setAttribute()</code>: Updated image source (`src`) and alt text (`alt`).</li>
+            </ul>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

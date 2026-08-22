@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exp 4: Browser Information Dashboard Using Window Object</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Browser & Environment Dashboard</h1>
+            <p class="subtitle">Inspecting Browser Window, Screen, Navigator, and Location APIs</p>
+        </header>
+
+        <!-- Live Metrics Grid -->
+        <div class="dashboard-grid">
+            <!-- 1. Window Location Card -->
+            <div class="card metric-card">
+                <div class="card-header">
+                    <span class="icon">🔗</span>
+                    <h3>Location API (<code>window.location</code>)</h3>
+                </div>
+                <div class="card-body">
+                    <div class="metric-row">
+                        <span class="label">Full URL (href):</span>
+                        <span id="loc-href" class="val code-val">-</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="label">Protocol:</span>
+                        <span id="loc-protocol" class="val">-</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="label">Host Name:</span>
+                        <span id="loc-hostname" class="val">-</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="label">Path Name:</span>
+                        <span id="loc-pathname" class="val">-</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="label">Port:</span>
+                        <span id="loc-port" class="val">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Navigator API Card -->
+            <div class="card metric-card">
+                <div class="card-header">
+                    <span class="icon">🧭</span>
+                    <h3>Navigator API (<code>window.navigator</code>)</h3>
+                </div>
+                <div class="card-body">
+                    <div class="metric-row">
+                        <span class="label">Online Status:</span>
+                        <span id="nav-online" class="val status-pill">-</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="label">Primary Language:</span>
+                        <span id="nav-lang" class="val">-</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="label">User Languages:</span>
+                        <span id="nav-langs" class="val">-</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="label">Platform:</span>
+                        <span id="nav-platform" class="val">-</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="label">Cookies Enabled:</span>
+                        <span id="nav-cookies" class="val">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Screen Object Card -->
+            <div class="card metric-card">
+                <div class="card-header">
+                    <span class="icon">🖥️</span>
+                    <h3>Screen API (<code>window.screen</code>)</h3>
+                </div>
+                <div class="card-body">
+                    <div class="metric-row">
+                        <span class="label">Screen Resolution:</span>
+                        <span id="screen-dim" class="val highlight">-</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="label">Available Dimensions:</span>
+                        <span id="screen-avail" class="val">-</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="label">Color Depth:</span>
+                        <span id="screen-depth" class="val">-</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="label">Orientation:</span>
+                        <span id="screen-orient" class="val">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Viewport & Scroll Card -->
+            <div class="card metric-card">
+                <div class="card-header">
+                    <span class="icon">📐</span>
+                    <h3>Viewport & Scroll Position</h3>
+                </div>
+                <div class="card-body">
+                    <div class="metric-row">
+                        <span class="label">Viewport (innerWidth x innerHeight):</span>
+                        <span id="viewport-dim" class="val highlight">-</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="label">Scroll X (<code>window.scrollX</code>):</span>
+                        <span id="scroll-x" class="val code-val">0 px</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="label">Scroll Y (<code>window.scrollY</code>):</span>
+                        <span id="scroll-y" class="val code-val">0 px</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="label">Device Pixel Ratio:</span>
+                        <span id="device-dpr" class="val">-</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Testing & Action Zone -->
+        <section class="card action-card">
+            <h2>Interactive Scroll & Resize Testing Controls</h2>
+            <p>Resize your browser window or use the scroll buttons below to observe live telemetry updates.</p>
+            <div class="btn-group">
+                <button id="btn-scroll-top" class="btn btn-primary">Scroll to Top (Y = 0)</button>
+                <button id="btn-scroll-mid" class="btn btn-secondary">Scroll to Middle (Y = 600)</button>
+                <button id="btn-scroll-bottom" class="btn btn-accent">Scroll to Bottom</button>
+                <button id="btn-reload" class="btn btn-outline">Reload Page (location.reload)</button>
+            </div>
+        </section>
+
+        <!-- Extended test content area to enable scrolling -->
+        <section class="card test-content">
+            <h3>Extended Scroll Test Area</h3>
+            <p>This content area allows demonstrating <code>window.scrollX</code>, <code>window.scrollY</code>, and scroll listeners.</p>
+            <div class="spacer-content">
+                <div class="step-box">Point Alpha (Y ≈ 300px)</div>
+                <div class="step-box">Point Beta (Y ≈ 600px)</div>
+                <div class="step-box">Point Gamma (Y ≈ 900px)</div>
+                <div class="step-box">Point Delta (Y ≈ 1200px - Page Bottom)</div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

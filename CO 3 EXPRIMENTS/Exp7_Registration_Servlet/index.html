@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exp 7: Student Registration Form (Servlet Processing)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 100%;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        header h1 {
+            font-size: 1.75rem;
+            color: #0f172a;
+            margin-bottom: 0.25rem;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #dbeafe;
+            color: #1e40af;
+            padding: 0.2rem 0.6rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+            margin-bottom: 1.1rem;
+        }
+
+        label {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .req {
+            color: #ef4444;
+        }
+
+        input[type="text"], input[type="email"], select {
+            padding: 0.65rem 0.85rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input:focus, select:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+
+        .btn-row {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.75rem;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s;
+        }
+
+        .btn-submit {
+            background-color: #2563eb;
+            color: #ffffff;
+        }
+
+        .btn-submit:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-reset {
+            background-color: #e2e8f0;
+            color: #475569;
+        }
+
+        .btn-reset:hover {
+            background-color: #cbd5e1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <header>
+                <span class="badge">Exp 7: HTTP POST Processing</span>
+                <h1>University Student Registration</h1>
+                <p class="subtitle">Submits data via POST to <code>RegisterServlet</code></p>
+            </header>
+
+            <form action="register" method="POST">
+                <!-- 1. Student Name -->
+                <div class="form-group">
+                    <label for="studentName">Student Full Name <span class="req">*</span></label>
+                    <input type="text" id="studentName" name="studentName" placeholder="e.g. Johnathan Doe" required>
+                </div>
+
+                <!-- 2. Register Number -->
+                <div class="form-group">
+                    <label for="regNumber">Register Number <span class="req">*</span></label>
+                    <input type="text" id="regNumber" name="regNumber" placeholder="e.g. 2024CS501" required>
+                </div>
+
+                <!-- 3. Email -->
+                <div class="form-group">
+                    <label for="email">Institutional Email <span class="req">*</span></label>
+                    <input type="email" id="email" name="email" placeholder="e.g. john.doe@univ.edu" required>
+                </div>
+
+                <!-- 4. Department -->
+                <div class="form-group">
+                    <label for="department">Academic Department <span class="req">*</span></label>
+                    <select id="department" name="department" required>
+                        <option value="">-- Choose Department --</option>
+                        <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                        <option value="Information Technology">Information Technology</option>
+                        <option value="Electronics & Communication Engineering">Electronics & Communication Engineering</option>
+                        <option value="Electrical & Electronics Engineering">Electrical & Electronics Engineering</option>
+                        <option value="Mechanical Engineering">Mechanical Engineering</option>
+                        <option value="Civil Engineering">Civil Engineering</option>
+                        <option value="Artificial Intelligence & Data Science">AI & Data Science</option>
+                    </select>
+                </div>
+
+                <!-- 5. Semester -->
+                <div class="form-group">
+                    <label for="semester">Current Semester <span class="req">*</span></label>
+                    <select id="semester" name="semester" required>
+                        <option value="">-- Choose Semester --</option>
+                        <option value="Semester 1">Semester 1 (Year 1)</option>
+                        <option value="Semester 2">Semester 2 (Year 1)</option>
+                        <option value="Semester 3">Semester 3 (Year 2)</option>
+                        <option value="Semester 4">Semester 4 (Year 2)</option>
+                        <option value="Semester 5">Semester 5 (Year 3)</option>
+                        <option value="Semester 6">Semester 6 (Year 3)</option>
+                        <option value="Semester 7">Semester 7 (Year 4)</option>
+                        <option value="Semester 8">Semester 8 (Year 4)</option>
+                    </select>
+                </div>
+
+                <div class="btn-row">
+                    <button type="submit" class="btn btn-submit">Submit Registration</button>
+                    <button type="reset" class="btn btn-reset">Clear Form</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

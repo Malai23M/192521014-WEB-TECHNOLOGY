@@ -1,0 +1,294 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #f8fafc;
+    color: #1e293b;
+    padding: 2rem 1rem;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+header {
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #0f172a;
+    margin-bottom: 0.35rem;
+}
+
+.subtitle {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.card h2, .card h3 {
+    color: #0f172a;
+    margin-bottom: 0.75rem;
+}
+
+.section-desc {
+    color: #64748b;
+    font-size: 0.88rem;
+    margin-bottom: 1rem;
+}
+
+/* Feature Status Matrix */
+.status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.status-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+    transition: all 0.2s;
+}
+
+.status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.status-header h4 {
+    font-size: 0.95rem;
+    color: #1e293b;
+}
+
+.badge {
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-success {
+    background-color: #dcfce7;
+    color: #15803d;
+}
+
+.badge-warning {
+    background-color: #fef3c7;
+    color: #b45309;
+}
+
+.badge-fallback {
+    background-color: #e0e7ff;
+    color: #4338ca;
+}
+
+.demo-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 800px) {
+    .demo-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+}
+
+input[type="text"] {
+    padding: 0.65rem 0.85rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+input[type="text"]:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+.btn-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-secondary {
+    background-color: #475569;
+    color: #ffffff;
+}
+
+.btn-secondary:hover {
+    background-color: #334155;
+}
+
+.btn-accent {
+    background-color: #0d9488;
+    color: #ffffff;
+}
+
+.btn-accent:hover {
+    background-color: #0f766e;
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+}
+
+.output-box {
+    background: #f1f5f9;
+    border: 1px dashed #cbd5e1;
+    border-radius: 8px;
+    padding: 0.85rem;
+    font-size: 0.85rem;
+    color: #334155;
+    min-height: 50px;
+}
+
+.sample-items {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.item-pill {
+    padding: 0.5rem 1rem;
+    background: #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #334155;
+    transition: all 0.3s;
+}
+
+.item-pill.highlighted {
+    background: #fef08a;
+    border: 2px solid #ca8a04;
+    color: #854d0e;
+    transform: scale(1.05);
+}
+
+/* ------------------------------------------------------------- */
+/* CSS @supports Demonstration: Modern Grid with Flexbox Fallback */
+/* ------------------------------------------------------------- */
+
+/* Default Fallback for older browsers (Flexbox / Block based) */
+.adaptive-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.grid-card {
+    flex: 1 1 250px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.25rem;
+}
+
+/* Feature Query: Modern CSS Grid enhancement */
+@supports (display: grid) {
+    .adaptive-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.25rem;
+    }
+}
+
+/* Feature Query: Backdrop-filter glassmorphism enhancement */
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+    .fallback-demo-card {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+}
+
+.card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.grid-card h4 {
+    color: #0f172a;
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+}
+
+.grid-card p {
+    color: #64748b;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+code {
+    background: #f1f5f9;
+    color: #dc2626;
+    padding: 0.1rem 0.3rem;
+    border-radius: 4px;
+    font-family: Consolas, monospace;
+}

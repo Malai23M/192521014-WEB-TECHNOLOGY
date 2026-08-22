@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exp 2: Dynamic Student Registration List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dynamic Student Registration System</h1>
+            <p class="subtitle">DOM Tree Manipulation with createElement, appendChild, remove, and parentElement</p>
+        </header>
+
+        <div class="app-layout">
+            <!-- Form Section -->
+            <section class="card form-card">
+                <h2>Register New Student</h2>
+                <form id="student-form">
+                    <div class="form-group">
+                        <label for="student-name">Student Full Name <span class="req">*</span></label>
+                        <input type="text" id="student-name" placeholder="e.g. Rachel Green" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="reg-number">Register Number <span class="req">*</span></label>
+                        <input type="text" id="reg-number" placeholder="e.g. 21CS045" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="department">Department <span class="req">*</span></label>
+                        <select id="department" required>
+                            <option value="">Select Department</option>
+                            <option value="Computer Science & Engineering">Computer Science & Engineering</option>
+                            <option value="Information Technology">Information Technology</option>
+                            <option value="Electronics & Communication">Electronics & Communication</option>
+                            <option value="Electrical & Electronics">Electrical & Electronics</option>
+                            <option value="Mechanical Engineering">Mechanical Engineering</option>
+                            <option value="Civil Engineering">Civil Engineering</option>
+                            <option value="Artificial Intelligence & Data Science">AI & Data Science</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="btn-add-student" class="btn btn-primary">
+                        <span class="icon">+</span> Add Student
+                    </button>
+                </form>
+            </section>
+
+            <!-- Table & List Section -->
+            <section class="card list-card">
+                <div class="list-header">
+                    <h2>Registered Students (<span id="student-count">0</span>)</h2>
+                    <button id="btn-clear-all" class="btn btn-danger-outline" disabled>Clear All</button>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="student-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Student Name</th>
+                                <th>Register No</th>
+                                <th>Department</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="student-list-body">
+                            <tr id="empty-row" class="empty-state">
+                                <td colspan="5">No students registered yet. Add a record using the form.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- DOM Action Feedback -->
+                <div class="status-bar" id="status-bar">
+                    Ready for input.
+                </div>
+            </section>
+        </div>
+
+        <!-- Technical Explanation Card -->
+        <section class="card doc-card">
+            <h3>DOM Traversal & Manipulation Methods Applied:</h3>
+            <div class="doc-grid">
+                <div>
+                    <strong><code>document.createElement('tr')</code></strong>
+                    <p>Creates dynamic table row and cell elements on the fly.</p>
+                </div>
+                <div>
+                    <strong><code>tbody.appendChild(row)</code></strong>
+                    <p>Attaches newly constructed rows into the DOM table body.</p>
+                </div>
+                <div>
+                    <strong><code>row.remove()</code></strong>
+                    <p>Removes the selected record element directly from the DOM tree.</p>
+                </div>
+                <div>
+                    <strong><code>btn.parentElement.parentElement</code></strong>
+                    <p>Traverses from the clicked remove button up to its containing table row.</p>
+                </div>
+                <div>
+                    <strong><code>tbody.children</code></strong>
+                    <p>Iterates child elements to re-index sequence numbers after any deletion.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

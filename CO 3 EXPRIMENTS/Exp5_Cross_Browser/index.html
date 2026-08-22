@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exp 5: Cross-Browser Compatible Interactive Webpage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Cross-Browser Compatibility & Graceful Degradation</h1>
+            <p class="subtitle">Feature Detection, Polyfills, Fallbacks, and CSS <code>@supports</code> in Practice</p>
+        </header>
+
+        <!-- Compatibility Matrix & Diagnostics -->
+        <section class="card status-section">
+            <h2>Live Browser Feature Detection Matrix</h2>
+            <div class="status-grid">
+                <!-- 1. LocalStorage -->
+                <div class="status-card" id="status-card-storage">
+                    <div class="status-header">
+                        <h4>Storage API (<code>localStorage</code>)</h4>
+                        <span id="badge-storage" class="badge">Checking...</span>
+                    </div>
+                    <p id="desc-storage">Detecting native HTML5 Web Storage support...</p>
+                </div>
+
+                <!-- 2. DOM querySelector -->
+                <div class="status-card" id="status-card-query">
+                    <div class="status-header">
+                        <h4>DOM Selection (<code>querySelector</code>)</h4>
+                        <span id="badge-query" class="badge">Checking...</span>
+                    </div>
+                    <p id="desc-query">Detecting W3C Selectors API Level 1...</p>
+                </div>
+
+                <!-- 3. CSS Grid & Modern CSS via @supports -->
+                <div class="status-card" id="status-card-css">
+                    <div class="status-header">
+                        <h4>CSS Grid & Backdrop Filter</h4>
+                        <span id="badge-css" class="badge">Checking...</span>
+                    </div>
+                    <p id="desc-css">Checked via <code>@supports (display: grid)</code> & <code>CSS.supports()</code></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demonstration Area with Fallbacks -->
+        <div class="demo-layout">
+            <!-- 1. Cross-Browser Storage Manager -->
+            <section class="card demo-card">
+                <h3>1. Safe Storage Demo (LocalStorage with Memory Fallback)</h3>
+                <p class="section-desc">If <code>localStorage</code> is blocked, private, or unsupported, an in-memory/cookie fallback is seamlessly activated.</p>
+                
+                <div class="form-group">
+                    <label for="storage-input">Save Note / Preference:</label>
+                    <input type="text" id="storage-input" placeholder="Type a note...">
+                </div>
+
+                <div class="btn-group">
+                    <button id="btn-save-storage" class="btn btn-primary">Save Data</button>
+                    <button id="btn-load-storage" class="btn btn-secondary">Load Saved Data</button>
+                    <button id="btn-clear-storage" class="btn btn-danger">Clear Data</button>
+                </div>
+
+                <div class="output-box" id="storage-output">
+                    Saved content will be displayed here.
+                </div>
+            </section>
+
+            <!-- 2. Cross-Browser DOM Query Selector Demo -->
+            <section class="card demo-card">
+                <h3>2. Safe Element Selection (querySelector with Legacy Fallback)</h3>
+                <p class="section-desc">Demonstrating cross-browser element finding helper with legacy <code>getElementById</code> & <code>getElementsByTagName</code> fallbacks.</p>
+
+                <div class="sample-items" id="items-container">
+                    <div class="item-pill target-item" data-id="1">Node 1 (.target-item)</div>
+                    <div class="item-pill target-item" data-id="2">Node 2 (.target-item)</div>
+                    <div class="item-pill target-item" data-id="3">Node 3 (.target-item)</div>
+                </div>
+
+                <button id="btn-query-test" class="btn btn-accent">Highlight Items via Safe Query</button>
+                
+                <div class="output-box" id="query-output">
+                    Selection diagnostic output will appear here.
+                </div>
+            </section>
+        </div>
+
+        <!-- 3. CSS Modern Layout with Fallback Demonstration -->
+        <section class="card fallback-demo-card">
+            <h3>3. Modern CSS Styling with <code>@supports</code> Fallback</h3>
+            <p>The grid below adapts gracefully: uses CSS Grid if supported; falls back to Flexbox / Float layout for legacy engines.</p>
+
+            <div class="adaptive-grid">
+                <div class="grid-card">
+                    <span class="card-icon">⚡</span>
+                    <h4>Progressive Enhancement</h4>
+                    <p>Build basic core functionality for all browsers, enhance for modern engines.</p>
+                </div>
+                <div class="grid-card">
+                    <span class="card-icon">🛡️</span>
+                    <h4>Graceful Degradation</h4>
+                    <p>Provide fallback alternatives when advanced capabilities fail or are disabled.</p>
+                </div>
+                <div class="grid-card">
+                    <span class="card-icon">🔍</span>
+                    <h4>Feature Detection</h4>
+                    <p>Always test for feature availability (e.g. <code>'localStorage' in window</code>) rather than sniffing userAgent.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
