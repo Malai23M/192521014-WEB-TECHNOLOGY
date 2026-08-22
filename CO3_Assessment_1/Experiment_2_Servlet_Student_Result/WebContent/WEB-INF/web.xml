@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
+                             http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <display-name>StudentResultProcessing</display-name>
+    <description>
+        CO3 Assessment 1 - Experiment 2: Servlet-Based Student Result Processing
+    </description>
+
+    <!-- Welcome file list -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+
+    <!-- Servlet Declaration -->
+    <servlet>
+        <servlet-name>StudentResultServlet</servlet-name>
+        <servlet-class>StudentResultServlet</servlet-class>
+    </servlet>
+
+    <!-- Servlet Mapping -->
+    <servlet-mapping>
+        <servlet-name>StudentResultServlet</servlet-name>
+        <url-pattern>/StudentResultServlet</url-pattern>
+    </servlet-mapping>
+
+</web-app>
