@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Technology - Unit IV Assessment 1 Answer Key</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #0f172a;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #334155;
+      --text-heading: #0f172a;
+      --code-bg: #1e293b;
+      --border: #e2e8f0;
+      --accent: #10b981;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .header-card {
+      background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+      margin-bottom: 30px;
+    }
+
+    .header-card h1 {
+      margin: 0 0 10px 0;
+      font-size: 26px;
+      letter-spacing: 0.5px;
+    }
+
+    .header-card h2 {
+      margin: 0 0 15px 0;
+      font-size: 18px;
+      font-weight: 400;
+      opacity: 0.9;
+    }
+
+    .meta-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5px);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 25px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h2 {
+      color: var(--text-heading);
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 12px;
+      margin-top: 0;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .badge-marks {
+      background: #eff6ff;
+      color: var(--primary);
+      border: 1px solid #bfdbfe;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .qa-item {
+      margin-bottom: 18px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .qa-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .qa-question {
+      font-weight: 600;
+      color: var(--text-heading);
+      margin-bottom: 6px;
+    }
+
+    .qa-answer {
+      color: #1e293b;
+      margin-left: 10px;
+    }
+
+    .highlight {
+      background-color: #ecfdf5;
+      color: #065f46;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    code {
+      font-family: 'Fira Code', Consolas, Monaco, monospace;
+      background: #f1f5f9;
+      color: #dc2626;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    pre {
+      background: var(--code-bg);
+      color: #f8fafc;
+      padding: 16px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-family: 'Fira Code', Consolas, monospace;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      font-size: 14px;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    th {
+      background: #f8fafc;
+      color: var(--text-heading);
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background: #fafafa;
+    }
+
+    .xpath-table td:nth-child(2) code {
+      color: #0284c7;
+      background: #e0f2fe;
+      font-weight: 600;
+    }
+
+    .result-table {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .result-table th {
+      background: #2563eb;
+      color: white;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .card, .header-card { box-shadow: none; border: 1px solid #ccc; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header-card">
+    <h1>WEB TECHNOLOGY</h1>
+    <h2>UNIT IV — REPRESENTING WEB DATA | ASSESSMENT I: DATA INTERPRETATION</h2>
+    <div class="meta-badges">
+      <span class="badge">Duration: 60 Minutes</span>
+      <span class="badge">Maximum Marks: 30</span>
+      <span class="badge">Mode: Individual Assessment</span>
+      <span class="badge">Scenario: University Course Enrollment Analysis</span>
+    </div>
+  </div>
+
+  <!-- Question 1 -->
+  <div class="card">
+    <h2>
+      <span>Question 1: Interpret the XML Structure</span>
+      <span class="badge-marks">5 Marks</span>
+    </h2>
+
+    <div class="qa-item">
+      <div class="qa-question">a. Identify the root element.</div>
+      <div class="qa-answer">👉 <code>&lt;courses&gt;</code> (The outermost parent enclosing all course data records).</div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">b. Identify the repeating record element.</div>
+      <div class="qa-answer">👉 <code>&lt;course&gt;</code> (Repeats for every individual course record).</div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">c. Identify the attribute used to uniquely identify each course.</div>
+      <div class="qa-answer">👉 Attribute: <code>id</code> on the <code>&lt;course&gt;</code> element (e.g., <code>id="C101"</code>).</div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">d. Identify the elements that represent numeric information.</div>
+      <div class="qa-answer">👉 <code>&lt;students&gt;</code> (student enrollment count) and <code>&lt;credits&gt;</code> (course credit value).</div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">e. State whether the XML document is structurally well-formed and justify your answer.</div>
+      <div class="qa-answer">
+        👉 <span class="highlight">Yes, the XML document is structurally well-formed.</span><br>
+        <strong>Justification:</strong>
+        <ul>
+          <li>It contains exactly one single root element (<code>&lt;courses&gt;</code>).</li>
+          <li>All opening tags have exact matching closing tags properly nested with no overlap.</li>
+          <li>Element tag names are strictly case-consistent.</li>
+          <li>All attribute values are properly wrapped inside quotes (e.g., <code>id="C101"</code>).</li>
+          <li>It includes a valid XML declaration at the top (<code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code>).</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="card">
+    <h2>
+      <span>Question 2: Apply XPath for Data Selection</span>
+      <span class="badge-marks">10 Marks</span>
+    </h2>
+
+    <table class="xpath-table">
+      <thead>
+        <tr>
+          <th style="width: 5%;">#</th>
+          <th style="width: 45%;">Requirement</th>
+          <th style="width: 50%;">XPath Expression</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>a</strong></td>
+          <td>All course records</td>
+          <td><code>/courses/course</code> <em>(or <code>//course</code>)</em></td>
+        </tr>
+        <tr>
+          <td><strong>b</strong></td>
+          <td>Names of all courses</td>
+          <td><code>/courses/course/name</code> <em>(or <code>//course/name</code>)</em></td>
+        </tr>
+        <tr>
+          <td><strong>c</strong></td>
+          <td>Courses having more than 50 students</td>
+          <td><code>/courses/course[students &gt; 50]</code></td>
+        </tr>
+        <tr>
+          <td><strong>d</strong></td>
+          <td>Courses carrying 4 credits</td>
+          <td><code>/courses/course[credits = 4]</code></td>
+        </tr>
+        <tr>
+          <td><strong>e</strong></td>
+          <td>Courses whose type is Theory</td>
+          <td><code>/courses/course[type = 'Theory']</code></td>
+        </tr>
+        <tr>
+          <td><strong>f</strong></td>
+          <td>Names of Theory courses having more than 50 students</td>
+          <td><code>/courses/course[type = 'Theory' and students &gt; 50]/name</code></td>
+        </tr>
+        <tr>
+          <td><strong>g</strong></td>
+          <td>Faculty members handling courses with at least 4 credits</td>
+          <td><code>/courses/course[credits &gt;= 4]/faculty</code></td>
+        </tr>
+        <tr>
+          <td><strong>h</strong></td>
+          <td>The course whose id is C104</td>
+          <td><code>/courses/course[@id = 'C104']</code></td>
+        </tr>
+        <tr>
+          <td><strong>i</strong></td>
+          <td>The first course available in the XML document</td>
+          <td><code>/courses/course[1]</code> <em>(or <code>(//course)[1]</code>)</em></td>
+        </tr>
+        <tr>
+          <td><strong>j</strong></td>
+          <td>The last course available in the XML document</td>
+          <td><code>/courses/course[last()]</code> <em>(or <code>(//course)[last()]</code>)</em></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="card">
+    <h2>
+      <span>Question 3: Apply XSLT for Data Presentation</span>
+      <span class="badge-marks">10 Marks</span>
+    </h2>
+
+    <p><strong>XSLT Transformation Stylesheet (<code>transform.xslt</code>):</strong></p>
+    <pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"&gt;
+  &lt;xsl:output method="html" encoding="UTF-8" indent="yes"/&gt;
+
+  &lt;xsl:template match="/"&gt;
+    &lt;html&gt;
+      &lt;head&gt;
+        &lt;title&gt;University Course Enrollment Analysis&lt;/title&gt;
+        &lt;style&gt;
+          body { font-family: Arial, sans-serif; margin: 20px; }
+          h2 { color: #1e3a8a; text-align: center; }
+          table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+          th, td { border: 1px solid #cbd5e1; padding: 10px; text-align: left; }
+          th { background-color: #2563eb; color: white; }
+          tr:nth-child(even) { background-color: #f8fafc; }
+        &lt;/style&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+        &lt;h2&gt;High Enrollment Courses&lt;/h2&gt;
+        &lt;table&gt;
+          &lt;thead&gt;
+            &lt;tr&gt;
+              &lt;th&gt;Course Code&lt;/th&gt;
+              &lt;th&gt;Course Name&lt;/th&gt;
+              &lt;th&gt;Faculty&lt;/th&gt;
+              &lt;th&gt;Students&lt;/th&gt;
+              &lt;th&gt;Credits&lt;/th&gt;
+              &lt;th&gt;Type&lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+            &lt;!-- Filter courses with more than 40 students --&gt;
+            &lt;xsl:for-each select="courses/course[students &amp;gt; 40]"&gt;
+              &lt;!-- Sort in descending order of student enrollment --&gt;
+              &lt;xsl:sort select="students" data-type="number" order="descending"/&gt;
+              &lt;tr&gt;
+                &lt;td&gt;&lt;xsl:value-of select="code"/&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;xsl:value-of select="name"/&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;xsl:value-of select="faculty"/&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;xsl:value-of select="students"/&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;xsl:value-of select="credits"/&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;xsl:value-of select="type"/&gt;&lt;/td&gt;
+              &lt;/tr&gt;
+            &lt;/xsl:for-each&gt;
+          &lt;/tbody&gt;
+        &lt;/table&gt;
+      &lt;/body&gt;
+    &lt;/html&gt;
+  &lt;/xsl:template&gt;
+&lt;/xsl:stylesheet&gt;</pre>
+
+    <p><strong>Resulting HTML Table Output:</strong></p>
+    <table class="result-table">
+      <thead>
+        <tr>
+          <th>Course Code</th>
+          <th>Course Name</th>
+          <th>Faculty</th>
+          <th class="text-center">Students</th>
+          <th class="text-center">Credits</th>
+          <th>Type</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>AI302</strong></td>
+          <td>Artificial Intelligence</td>
+          <td>Dr. Meena</td>
+          <td class="text-center"><strong>72</strong></td>
+          <td class="text-center">4</td>
+          <td>Theory</td>
+        </tr>
+        <tr>
+          <td><strong>ML304</strong></td>
+          <td>Machine Learning</td>
+          <td>Dr. Priya</td>
+          <td class="text-center"><strong>64</strong></td>
+          <td class="text-center">4</td>
+          <td>Theory</td>
+        </tr>
+        <tr>
+          <td><strong>WEB301</strong></td>
+          <td>Web Technology</td>
+          <td>Dr. Arun</td>
+          <td class="text-center"><strong>58</strong></td>
+          <td class="text-center">4</td>
+          <td>Theory</td>
+        </tr>
+        <tr>
+          <td><strong>DB305</strong></td>
+          <td>Database Systems</td>
+          <td>Dr. Kumar</td>
+          <td class="text-center"><strong>42</strong></td>
+          <td class="text-center">3</td>
+          <td>Theory</td>
+        </tr>
+      </tbody>
+    </table>
+    <small style="color: #64748b;"><em>*Note: WEB303 (Web Technology Laboratory) with 36 students is omitted since 36 &le; 40.</em></small>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="card">
+    <h2>
+      <span>Question 4: Interpret the Extracted Data</span>
+      <span class="badge-marks">5 Marks</span>
+    </h2>
+
+    <div class="qa-item">
+      <div class="qa-question">a. Identify the course with the highest enrollment.</div>
+      <div class="qa-answer">
+        👉 <strong>Artificial Intelligence (<code>AI302</code> / ID: <code>C102</code>)</strong> with <strong>72 students</strong>.
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">b. Identify the course with the lowest enrollment.</div>
+      <div class="qa-answer">
+        👉 <strong>Web Technology Laboratory (<code>WEB303</code> / ID: <code>C103</code>)</strong> with <strong>36 students</strong>.
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">c. Determine the number of Theory courses.</div>
+      <div class="qa-answer">
+        👉 <strong>4 Theory courses</strong><br>
+        <em>List: WEB301 (Web Technology), AI302 (Artificial Intelligence), ML304 (Machine Learning), DB305 (Database Systems).</em>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">d. Identify all courses having exactly 4 credits.</div>
+      <div class="qa-answer">
+        👉 <strong>3 courses:</strong>
+        <ol>
+          <li><strong>Web Technology</strong> (<code>WEB301</code> / ID: <code>C101</code>) — 4 credits</li>
+          <li><strong>Artificial Intelligence</strong> (<code>AI302</code> / ID: <code>C102</code>) — 4 credits</li>
+          <li><strong>Machine Learning</strong> (<code>ML304</code> / ID: <code>C104</code>) — 4 credits</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">e. If an additional teaching assistant is assigned to every course with more than 60 students, identify the courses that require additional support.</div>
+      <div class="qa-answer">
+        👉 <strong>2 courses qualify (Students &gt; 60):</strong>
+        <ol>
+          <li><strong>Artificial Intelligence</strong> (<code>AI302</code>) — <strong>72 students</strong> (&gt; 60)</li>
+          <li><strong>Machine Learning</strong> (<code>ML304</code>) — <strong>64 students</strong> (&gt; 60)</li>
+        </ol>
+        <small style="color: #64748b;">(WEB301 with 58 students, DB305 with 42, and WEB303 with 36 do not exceed 60).</small>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
